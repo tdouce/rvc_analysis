@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ValidationsTest</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <% if flash[:success] %>
+    <p class="success"> <%= flash[:sucess] %> </p>
+  <% end %>
+
+  <% if flash[:failure] %>
+    <p class="failure"> <%= flash[:failure] %> </p>
+  <% end %>
+
+<%= yield %>
+
+</body>
+</html>

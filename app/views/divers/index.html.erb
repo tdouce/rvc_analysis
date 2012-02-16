@@ -1,0 +1,14 @@
+<h1>Divers</h1>
+
+<table>
+  <tr>
+    <th> First Name </th>
+    <th> Last Name </th>
+  </tr>
+  <% @divers.each do |diver| %>
+    <tr>
+      <td> <%= diver.first_name %> </td>
+      <td> <%= diver.last_name %> </td>
+    </tr>
+  <% end %>
+</table>
