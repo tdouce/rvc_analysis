@@ -1,14 +1,7 @@
 ValidationsTest::Application.routes.draw do
-  
-  get "visits/new"
-
-  get "visits/update"
-
-  get "visits/edit"
-
-  get "visits/index"
-
+ 
   resources :divers
+  resources :visits
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,2 +1,11 @@
-<h1>Visits#new</h1>
-<p>Find me in app/views/visits/new.html.erb</p>
+<h1>Create Visit</h1>
+
+<%= form_for @visit do |f| %>
+  <%= f.label "Dive Start Time" %>
+  <%= f.time_select :dive_start, {:minute_step => 5, :ampm => true } %> <br />
+  <%= f.label "Dive End Time" %>
+  <%= f.time_select :dive_end, {:minute_step => 5, :ampm => true } %> <br />
+
+  <br />
+  <%= f.submit %>
+<% end %>
