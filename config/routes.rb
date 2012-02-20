@@ -2,6 +2,7 @@ ValidationsTest::Application.routes.draw do
  
   resources :divers
   resources :visits
+  resources :sites
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,11 @@
+<h1>Create a Sites</h1>
+
+<%= form_for @site do |f| %>
+
+  <%= render 'shared/errormessages', :object => f.object %>
+
+  <%= f.label "Name" %>
+  <%= f.text_field :name %>
+  <br />
+  <%= f.submit %>
+<% end %>

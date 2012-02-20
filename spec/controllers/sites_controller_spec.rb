@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe DiversController do
+describe SitesController do
 
   describe "GET 'new'" do
     it "returns http success" do
@@ -9,16 +9,10 @@ describe DiversController do
     end
   end
 
-  describe "POST 'new'" do
+  describe "GET 'create'" do
     it "returns http success" do
-      post 'create'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'update'" do
-    it "returns http success" do
-      get 'update'
+      get 'create'
+      save_and_open_page
       response.should be_success
     end
   end
@@ -26,6 +20,13 @@ describe DiversController do
   describe "GET 'edit'" do
     it "returns http success" do
       get 'edit'
+      response.should be_success
+    end
+  end
+
+  describe "GET 'update'" do
+    it "returns http success" do
+      get 'update'
       response.should be_success
     end
   end
