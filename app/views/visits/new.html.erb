@@ -1,8 +1,18 @@
 <h1>Create Visit</h1>
 
 <%= form_for @visit do |f| %>
+
+  <%= render 'shared/errormessages', :object => f.object %>
+
   <%= f.label "Dive Start Time" %>
   <%= f.time_select :dive_start, {:minute_step => 5, :ampm => true } %> <br />
+
+  <%= f.label "Sample Start Time" %>
+  <%= f.time_select :sample_start, {:minute_step => 5, :ampm => true } %> <br />
+
+  <%= f.label "Sample End Time" %>
+  <%= f.time_select :sample_end, {:minute_step => 5, :ampm => true } %> <br />
+
   <%= f.label "Dive End Time" %>
   <%= f.time_select :dive_end, {:minute_step => 5, :ampm => true } %> <br />
 
