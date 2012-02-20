@@ -1,2 +1,13 @@
 <h1>Visits#index</h1>
-<p>Find me in app/views/visits/index.html.erb</p>
+<table>
+  <tr>
+    <td>Visit #</td>
+    <td>Divers</td>
+  </tr>
+  <% @visits.each do |visit| %>
+    <tr>
+      <td><%= visit.id %></td>
+      <td><%= visit.divers.map {|diver| diver.full_name }.join(", ")%></td>
+    </tr>
+  <% end %>
+</table>

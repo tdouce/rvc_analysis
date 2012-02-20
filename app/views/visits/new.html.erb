@@ -4,6 +4,20 @@
 
   <%= render 'shared/errormessages', :object => f.object %>
 
+  <%= f.label "Sample Site" %> 
+  <%= f.collection_select :site_id, Site.all, :id, :name %> <br />
+
+  <br />
+
+  <div>
+    <% Diver.all.each do |diver| %>
+      <%= check_box_tag 'visit[diver_ids][]', diver.id, @visit.divers.include?(diver) %>
+      <%= diver.full_name %>
+    <% end %>
+  </div>
+  
+  <br />
+
   <%= f.label "Dive Start Time" %>
   <%= f.time_select :dive_start, {:minute_step => 5, :ampm => true } %> <br />
 

@@ -1,5 +1,10 @@
 class Visit < ActiveRecord::Base
 
+  belongs_to :site
+
+  has_many  :diver_visits
+  has_many  :divers, :through => :diver_visits
+
   validates :dive_start,            :presence => true
   validates :dive_end,              :presence => true
   validates :sample_start,          :presence => true
