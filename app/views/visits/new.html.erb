@@ -9,13 +9,11 @@
 
   <br />
 
-  <div>
-    <% Diver.all.each do |diver| %>
-      <%= check_box_tag 'visit[diver_ids][]', diver.id, @visit.divers.include?(diver) %>
-      <%= diver.full_name %>
-    <% end %>
-  </div>
-  
+  <%= f.fields_for :diver_visits do |builder| %>
+    <%= builder.label "Diver" %>
+    <%= builder.collection_select :diver_id, Diver.all, :id, :full_name %> <br />
+  <% end %>
+
   <br />
 
   <%= f.label "Dive Start Time" %>
