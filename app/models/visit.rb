@@ -6,7 +6,7 @@ class Visit < ActiveRecord::Base
   accepts_nested_attributes_for :diver_visits
 
   validates :site,                  :presence => true
-  validates :divers,                :presence => true
+  #validates :divers,                :presence => true
   validates :dive_start,            :presence => true
   validates :dive_end,              :presence => true
   validates :sample_start,          :presence => true
@@ -16,5 +16,8 @@ class Visit < ActiveRecord::Base
   validates_is_after :sample_end,   :after => :sample_start
   validates_is_after :sample_start, :after => :dive_start
   validates_is_after :dive_end,     :after => :sample_end
+
+  validates :substrate_max_depth,   :presence => true, :numericality => {:only_integer => true, :less_than_or_equal_to => 100  }
+  validates :substrate_min_depth,   :presence => true, :numericality => {:only_integer => true, :greater_than_or_equal_to => 5  }
 
 end
