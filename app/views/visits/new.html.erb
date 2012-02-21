@@ -29,5 +29,12 @@
   <%= f.time_select :dive_end, {:minute_step => 5, :ampm => true } %> <br />
 
   <br />
+
+
+  <%= f.label "Max Depth" %>
+  <%= f.text_field :substrate_max_depth %><br />
+  <%= f.label "Min Depth" %>
+  <%= f.text_field :substrate_min_depth %><br />
+  <br />
   <%= f.submit %>
 <% end %>

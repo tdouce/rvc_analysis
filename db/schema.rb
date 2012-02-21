@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120220204957) do
+ActiveRecord::Schema.define(:version => 20120221163639) do
 
   create_table "diver_visits", :force => true do |t|
     t.integer  "diver_id"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(:version => 20120220204957) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "site_id"
+    t.integer  "substrate_max_depth"
+    t.integer  "substrate_min_depth"
   end
 
 end
