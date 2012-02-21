@@ -11,14 +11,10 @@
 
 $(function(){
     
-    alert('test');
-
     // Hide section two until section one is completely filled out
     $("#section_2").hide();
-  
-    // Onchange check to see if all values have been filled out. If so, then
-    // show the next div.
-    $('.section_1').change(function(){ 
+
+    function show_or_hide_section(){
 
       var should_display_div = new Array();
 
@@ -31,11 +27,18 @@ $(function(){
           };
       });
 
-      alert( should_display_div.length );
-
       if ( should_display_div.length == 0 )
         { 
           $("#section_2").show();
         };
+    };
+
+    // Check to see if section should be shown or hidden
+    show_or_hide_section();
+
+    // Onchange check to see if all values have been filled out. If so, then
+    // show the next div.
+    $('.section_1').change(function(){ 
+        show_or_hide_section();
     });
 });
