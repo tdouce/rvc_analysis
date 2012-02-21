@@ -10,6 +10,8 @@
 //= require_tree .
 
 $(function(){
+    
+    alert('test');
 
     // Hide section two until section one is completely filled out
     $("#section_2").hide();
@@ -21,11 +23,15 @@ $(function(){
       var should_display_div = new Array();
 
       $('#section_1').find('.section_1').each(function(){
-        if ( $(this).val() == 0 )
+        // This equality test does NOT work with '0' because they time
+        // option_selects can be '0'
+        if ( $(this).val() == '' )
           {
             should_display_div.push( $(this) );
           };
       });
+
+      alert( should_display_div.length );
 
       if ( should_display_div.length == 0 )
         { 
