@@ -29,4 +29,32 @@ describe Visit do
   it "Dive end time should be after sample end time" do
     pending
   end
+
+  it "Divers should not be blank" do
+    pending
+  end
+
+  it "should require a substrate_max_depth" do
+    visit = Factory.build(:visit, :substrate_max_depth => nil)
+    lambda { visit.save!}.should raise_error(ActiveRecord::RecordInvalid)
+    visit.should have(2).errors_on(:substrate_max_depth)
+  end
+
+  it "should require a substrate_max_depth less than or equal to 100" do
+    visit = Factory.build(:visit, :substrate_max_depth => 1000)
+    lambda { visit.save!}.should raise_error(ActiveRecord::RecordInvalid)
+    visit.should have(1).errors_on(:substrate_max_depth)
+  end
+
+  it "should require a substrate_min_depth" do
+    visit = Factory.build(:visit, :substrate_min_depth => nil)
+    lambda { visit.save!}.should raise_error(ActiveRecord::RecordInvalid)
+    visit.should have(2).errors_on(:substrate_min_depth)
+  end
+
+  it "should require a substrate_min_depth greater than or equal to 5" do
+    visit = Factory.build(:visit, :substrate_min_depth => 1)
+    lambda { visit.save!}.should raise_error(ActiveRecord::RecordInvalid)
+    visit.should have(1).errors_on(:substrate_min_depth)
+  end
 end
