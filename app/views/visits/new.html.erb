@@ -4,37 +4,39 @@
 
   <%= render 'shared/errormessages', :object => f.object %>
 
-  <%= f.label "Sample Site" %> 
-  <%= f.collection_select :site_id, Site.all, :id, :name %> <br />
+  <div id="section_1">
+    <%= f.label "Sample Site" %> 
+    <%= f.collection_select :site_id, Site.all, :id, :name, {:include_blank => ""}, {:class => 'section_1'} %> <br />
 
-  <br />
+    <br />
 
-  <%= f.fields_for :diver_visits do |builder| %>
-    <%= builder.label "Diver" %>
-    <%= builder.collection_select :diver_id, Diver.all, :id, :full_name %> <br />
-  <% end %>
+    <%= f.fields_for :diver_visits do |builder| %>
+      <%= builder.label "Diver" %>
+      <%= builder.collection_select :diver_id, Diver.all, :id, :full_name, {:include_blank => ""} , {:class => 'section_1'}%> <br />
+    <% end %>
 
-  <br />
+    <br />
 
-  <%= f.label "Dive Start Time" %>
-  <%= f.time_select :dive_start, {:minute_step => 5, :ampm => true } %> <br />
+    <%= f.label "Dive Start Time" %>
+    <%= f.time_select :dive_start, {:minute_step => 5, :ampm => true }, {:class => 'section_1'} %> <br />
 
-  <%= f.label "Sample Start Time" %>
-  <%= f.time_select :sample_start, {:minute_step => 5, :ampm => true } %> <br />
+    <%= f.label "Sample Start Time" %>
+    <%= f.time_select :sample_start, {:minute_step => 5, :ampm => true }, {:class => 'section_1'} %> <br />
 
-  <%= f.label "Sample End Time" %>
-  <%= f.time_select :sample_end, {:minute_step => 5, :ampm => true } %> <br />
+    <%= f.label "Sample End Time" %>
+    <%= f.time_select :sample_end, {:minute_step => 5, :ampm => true }, {:class => 'section_1'} %> <br />
 
-  <%= f.label "Dive End Time" %>
-  <%= f.time_select :dive_end, {:minute_step => 5, :ampm => true } %> <br />
+    <%= f.label "Dive End Time" %>
+    <%= f.time_select :dive_end, {:minute_step => 5, :ampm => true }, {:class => 'section_1'} %> <br />
+    <br />
+</div>
 
-  <br />
-
-
-  <%= f.label "Max Depth" %>
-  <%= f.text_field :substrate_max_depth %><br />
-  <%= f.label "Min Depth" %>
-  <%= f.text_field :substrate_min_depth %><br />
-  <br />
+  <div id="section_2">
+    <%= f.label "Max Depth" %>
+    <%= f.text_field :substrate_max_depth %><br />
+    <%= f.label "Min Depth" %>
+    <%= f.text_field :substrate_min_depth %><br />
+    <br />
+</div>
   <%= f.submit %>
 <% end %>

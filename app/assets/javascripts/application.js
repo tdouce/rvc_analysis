@@ -10,5 +10,26 @@
 //= require_tree .
 
 $(function(){
-  alert('test')    
+
+    // Hide section two until section one is completely filled out
+    $("#section_2").hide();
+  
+    // Onchange check to see if all values have been filled out. If so, then
+    // show the next div.
+    $('.section_1').change(function(){ 
+
+      var should_display_div = new Array();
+
+      $('#section_1').find('.section_1').each(function(){
+        if ( $(this).val() == 0 )
+          {
+            should_display_div.push( $(this) );
+          };
+      });
+
+      if ( should_display_div.length == 0 )
+        { 
+          $("#section_2").show();
+        };
+    });
 });
