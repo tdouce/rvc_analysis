@@ -5,10 +5,11 @@ class Visit < ActiveRecord::Base
   has_many    :divers, :through => :diver_visits
   accepts_nested_attributes_for :diver_visits
 
+  validates :site,                  :presence => true
+  validates :divers,                :presence => true
   validates :dive_start,            :presence => true
   validates :dive_end,              :presence => true
   validates :sample_start,          :presence => true
-  validates :diver, :presence => true
 
   # Custom validations
   validates_is_after :dive_end,     :after => :dive_start
