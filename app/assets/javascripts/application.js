@@ -6,4 +6,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require underscore-min.js
 //= require_tree .
+
+$(function(){
+  alert('test')    
+});
