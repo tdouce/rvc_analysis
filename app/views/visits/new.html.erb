@@ -18,16 +18,16 @@
     <br />
 
     <%= f.label "Dive Start Time" %>
-    <%= f.time_select :dive_start, {:minute_step => 5, :ampm => true }, {:class => 'section_1'} %> <br />
+    <%= f.time_select :dive_start, {:include_blank => "", :minute_step => 5, :ampm => true }, {:class => 'section_1'} %> <br />
 
     <%= f.label "Sample Start Time" %>
-    <%= f.time_select :sample_start, {:minute_step => 5, :ampm => true }, {:class => 'section_1'} %> <br />
+    <%= f.time_select :sample_start, {:include_blank => "", :minute_step => 5, :ampm => true }, {:class => 'section_1'} %> <br />
 
     <%= f.label "Sample End Time" %>
-    <%= f.time_select :sample_end, {:minute_step => 5, :ampm => true }, {:class => 'section_1'} %> <br />
+    <%= f.time_select :sample_end, {:include_blank => "", :minute_step => 5, :ampm => true }, {:class => 'section_1'} %> <br />
 
     <%= f.label "Dive End Time" %>
-    <%= f.time_select :dive_end, {:minute_step => 5, :ampm => true }, {:class => 'section_1'} %> <br />
+    <%= f.time_select :dive_end, {:include_blank => "", :minute_step => 5, :ampm => true }, {:class => 'section_1'} %> <br />
     <br />
   </div>
 
