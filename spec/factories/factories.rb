@@ -9,10 +9,15 @@ end
 
 Factory.define :visit do |f|
   current_time  = Time.now
-  f.dive_start          current_time
-  f.sample_start        current_time + 30.minutes
-  f.sample_end          current_time + 35.minutes
-  f.dive_end            current_time + 1.hour
-  f.substrate_max_depth 50 
-  f.substrate_min_depth 30 
+  f.dive_start                current_time
+  f.sample_start              current_time + 30.minutes
+  f.sample_end                current_time + 35.minutes
+  f.dive_end                  current_time + 1.hour
+  f.substrate_max_depth       50 
+  f.substrate_min_depth       30 
+  f.surface_relief_hard_cat_1 10
+  f.surface_relief_hard_cat_2 10
+  f.surface_relief_hard_cat_3 10
+  f.surface_relief_hard_cat_4 10
+  f.surface_relief_hard_cat_5 60
 end
