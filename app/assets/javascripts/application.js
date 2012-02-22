@@ -33,12 +33,42 @@ $(function(){
         };
     };
 
-    // Check to see if section should be shown or hidden
+    
+    function total_surface_hard_relief(){
+
+      var sum_for_display_total = new Array();
+
+      $('#section_2').find('.surface_relief_hard').each(function(){
+        if ( $(this).val() != 0 )
+          {
+            sum_for_display_total.push( $(this).val() );
+          };
+      });
+
+      var total = 0;
+
+      $.each(sum_for_display_total,function() {
+          total += parseFloat( this );
+      });
+
+      $( '#surface_hard_relief_total').val( total );
+
+    };
+
+    // Check to see if section should be shown or hidden when page loads
     show_or_hide_section();
 
-    // Onchange check to see if all values have been filled out. If so, then
-    // show the next div.
+    // Onchange check to see if all values have been filled out. If so, then show the next div.
     $('.section_1').change(function(){ 
         show_or_hide_section();
     });
+
+    // Calculate total when page loads
+    total_surface_hard_relief();
+
+    // Calculate total when onchange
+    $('.surface_relief_hard').change(function(){ 
+        total_surface_hard_relief();
+    });
+
 });
