@@ -1,0 +1,55 @@
+
+<%= form_for @visit do |f| %>
+
+  <%= render 'shared/errormessages', :object => f.object %>
+
+  <div id="section_1">
+    <%= f.label "Sample Site" %> 
+    <%= f.collection_select :site_id, Site.all, :id, :name, {:include_blank => ""}, {:class => 'section_1'} %> <br />
+
+    <br />
+
+    <%= f.fields_for :diver_visits do |builder| %>
+      <%= builder.label "Diver" %>
+      <%= builder.collection_select :diver_id, Diver.all, :id, :full_name, {:include_blank => ""} , {:class => 'section_1'}%> <br />
+    <% end %>
+
+    <br />
+
+    <%= f.label "Dive Start Time" %>
+    <%= f.time_select :dive_start, {:include_blank => "", :minute_step => 5, :ampm => true }, {:class => 'section_1'} %> <br />
+
+    <%= f.label "Sample Start Time" %>
+    <%= f.time_select :sample_start, {:include_blank => "", :minute_step => 5, :ampm => true }, {:class => 'section_1'} %> <br />
+
+    <%= f.label "Sample End Time" %>
+    <%= f.time_select :sample_end, {:include_blank => "", :minute_step => 5, :ampm => true }, {:class => 'section_1'} %> <br />
+
+    <%= f.label "Dive End Time" %>
+    <%= f.time_select :dive_end, {:include_blank => "", :minute_step => 5, :ampm => true }, {:class => 'section_1'} %> <br />
+    <br />
+  </div>
+
+  <div id="section_2">
+    <%= f.label "Max Depth" %>
+    <%= f.text_field :substrate_max_depth %><br />
+
+    <%= f.label "Min Depth" %>
+    <%= f.text_field :substrate_min_depth %><br />
+    
+    <h3>Surface Relief Coverage</h3> 
+
+    <h4>Hard</h4>
+
+    <%= render 'surface_relief', :object => f, :klass => 'surface_relief_hard' %>
+    <br />
+
+    <h4>Soft</h4>
+    <%= render 'surface_relief', :object => f, :klass => 'surface_relief_soft' %>
+    <br />
+
+  </div>
+
+  <br />
+  <%= f.submit button_text %>
+<% end %>
