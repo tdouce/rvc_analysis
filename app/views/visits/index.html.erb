@@ -3,11 +3,15 @@
   <tr>
     <td>Visit #</td>
     <td>Divers</td>
+    <td></td>
+    <td></td>
   </tr>
   <% @visits.each do |visit| %>
     <tr>
       <td><%= visit.id %></td>
       <td><%= visit.divers.map {|diver| diver.full_name }.join(", ")%></td>
+      <td><%= button_to "edit", edit_visit_url(visit), {:method => :get}%></td>
+      <td><%= button_to "delete", visit_url(visit), :method => :delete, :title => "Delete Visit" %></td>
     </tr>
   <% end %>
 </table>
