@@ -12,7 +12,7 @@
 $(function(){
     
     // Hide section two until section one is completely filled out
-    $("#section_2").hide();
+    //$("#section_2").hide();
 
     function show_or_hide_section(){
 

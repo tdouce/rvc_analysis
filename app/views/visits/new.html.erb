@@ -37,6 +37,24 @@
 
     <%= f.label "Min Depth" %>
     <%= f.text_field :substrate_min_depth %><br />
+    
+    <h3>Surface Relief Coverage</h3> 
+    <h4>Hard</h4>
+
+    <%= f.label "< 0.2 m" %>
+    <%= f.text_field :surface_relief_hard_cat_1 %><br />
+
+    <%= f.label "0.2 - 0.5 m" %>
+    <%= f.text_field :surface_relief_hard_cat_2 %><br />
+
+    <%= f.label "0.5 - 1.0 m" %>
+    <%= f.text_field :surface_relief_hard_cat_3 %><br />
+
+    <%= f.label "1.0 - 1.5 m" %>
+    <%= f.text_field :surface_relief_hard_cat_4 %><br />
+
+    <%= f.label "> 1.5 m" %>
+    <%= f.text_field :surface_relief_hard_cat_5 %><br />
     <br />
 </div>
   <%= f.submit %>
