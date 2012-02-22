@@ -8,13 +8,7 @@
 </head>
 <body>
 
-  <% if flash[:success] %>
-    <p class="success"> <%= flash[:sucess] %> </p>
-  <% end %>
-
-  <% if flash[:failure] %>
-    <p class="failure"> <%= flash[:failure] %> </p>
-  <% end %>
+<%= render 'shared/flash_messages' %>
 
 <%= yield %>
 
