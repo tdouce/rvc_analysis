@@ -57,4 +57,40 @@ describe Visit do
     lambda { visit.save!}.should raise_error(ActiveRecord::RecordInvalid)
     visit.should have(1).errors_on(:substrate_min_depth)
   end
+
+  it "should require a :surface_relief_hard_cat_1" do
+    visit = Factory.build(:visit, :surface_relief_hard_cat_1 => nil)
+    lambda { visit.save!}.should raise_error(ActiveRecord::RecordInvalid)
+    visit.should have(2).errors_on(:surface_relief_hard_cat_1)
+  end
+
+  it "should require a :surface_relief_hard_cat_2" do
+    visit = Factory.build(:visit, :surface_relief_hard_cat_2 => nil)
+    lambda { visit.save!}.should raise_error(ActiveRecord::RecordInvalid)
+    visit.should have(2).errors_on(:surface_relief_hard_cat_2)
+  end
+
+  it "should require a :surface_relief_hard_cat_3" do
+    visit = Factory.build(:visit, :surface_relief_hard_cat_3 => nil)
+    lambda { visit.save!}.should raise_error(ActiveRecord::RecordInvalid)
+    visit.should have(2).errors_on(:surface_relief_hard_cat_3)
+  end
+
+  it "should require a :surface_relief_hard_cat_4" do
+    visit = Factory.build(:visit, :surface_relief_hard_cat_4 => nil)
+    lambda { visit.save!}.should raise_error(ActiveRecord::RecordInvalid)
+    visit.should have(2).errors_on(:surface_relief_hard_cat_4)
+  end
+
+  it "should require a :surface_relief_hard_cat_5" do
+    visit = Factory.build(:visit, :surface_relief_hard_cat_5 => nil)
+    lambda { visit.save!}.should raise_error(ActiveRecord::RecordInvalid)
+    visit.should have(2).errors_on(:surface_relief_hard_cat_5)
+  end
+
+  it "should add to 100" do
+    visit = Factory.build(:visit, :surface_relief_hard_cat_1 => 1)
+    lambda { visit.save!}.should raise_error(ActiveRecord::RecordInvalid)
+    visit.should have(1).errors_on(:hard_surface_relief_coverage)
+  end
 end
