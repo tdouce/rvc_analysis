@@ -67,12 +67,14 @@ ActiveRecord::Base.class_eval do
       unless value.nil?
                
         if record.send( attr_name ).is_a?(Integer)
-
-          nums_array = configuration[:sum].map {|attr| record.send( attr )}
+          nums_array = configuration[:sum].map {|attr| record.send( attr ) }.compact
 
           unless nums_array.inject(0,:+) == 100
-              #record.errors.add( attr_name, "#{ configuration[:sum].map{|field| field.to_s.titleize}.join(", ") } must be sum to 100.") if value
-              record.errors.add( configuration[:message][0], configuration[:message][1]) if value
+              if configuration[:message]
+                record.errors.add( attr_name, "#{configuration[:message]}") if value
+              else
+                record.errors.add( attr_name, "does not sum to 100.") if value
+              end
           end
         end
       end
