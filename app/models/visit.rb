@@ -28,11 +28,11 @@ class Visit < ActiveRecord::Base
   # Custom validations
   validates_is_greater_than :substrate_max_depth, :greater_than => :substrate_min_depth
 
-  validates :surface_relief_hard_cat_1, :presence => true, :numericality => true
-  validates :surface_relief_hard_cat_2, :presence => true, :numericality => true
-  validates :surface_relief_hard_cat_3, :presence => true, :numericality => true
-  validates :surface_relief_hard_cat_4, :presence => true, :numericality => true
-  validates :surface_relief_hard_cat_5, :presence => true, :numericality => true
+  validates :surface_relief_hard_cat_1, :numericality => true, :allow_blank => true
+  validates :surface_relief_hard_cat_2, :numericality => true, :allow_blank => true
+  validates :surface_relief_hard_cat_3, :numericality => true, :allow_blank => true
+  validates :surface_relief_hard_cat_4, :numericality => true, :allow_blank => true
+  validates :surface_relief_hard_cat_5, :numericality => true, :allow_blank => true
 
   validates_adds_to_100 :hard_surface_relief_coverage, 
                         :sum => [ 
