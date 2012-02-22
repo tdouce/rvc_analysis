@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120222134208) do
+ActiveRecord::Schema.define(:version => 20120222180253) do
 
   create_table "diver_visits", :force => true do |t|
     t.integer  "diver_id"
@@ -48,6 +48,11 @@ ActiveRecord::Schema.define(:version => 20120222134208) do
     t.integer  "surface_relief_hard_cat_3"
     t.integer  "surface_relief_hard_cat_4"
     t.integer  "surface_relief_hard_cat_5"
+    t.integer  "surface_relief_soft_cat_1"
+    t.integer  "surface_relief_soft_cat_2"
+    t.integer  "surface_relief_soft_cat_3"
+    t.integer  "surface_relief_soft_cat_4"
+    t.integer  "surface_relief_soft_cat_5"
   end
 
 end
