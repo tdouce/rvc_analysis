@@ -1,5 +1,7 @@
 class VisitsController < ApplicationController
 
+  before_filter :find_visit, :only => [:edit, :update, :destroy]
+
   def new
     @visit = Visit.new
 
@@ -20,8 +22,6 @@ class VisitsController < ApplicationController
   end
 
   def update
-    @visit = Visit.find(params[:id])
-
     if @visit.update_attributes(params[:visit])
       flash[:success] = "Visit was updated"
       redirect_to visits_url
@@ -32,11 +32,21 @@ class VisitsController < ApplicationController
   end
 
   def edit
-    @visit = Visit.find(params[:id])
   end
 
   def index
     @visits = Visit.all
+  end
+
+  def destroy
+    @visit.destroy
+    redirect_to visits_url
+  end
+
+  protected
+
+  def find_visit
+    @visit = Visit.find(params[:id])
   end
 
 end
