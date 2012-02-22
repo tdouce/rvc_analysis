@@ -34,11 +34,11 @@ $(function(){
     };
 
     
-    function total_surface_hard_relief(){
+    function calculate_surface_relief( input_class_to_sum, id_to_display_total){
 
       var sum_for_display_total = new Array();
 
-      $('#section_2').find('.surface_relief_hard').each(function(){
+      $('#section_2').find('.' + input_class_to_sum).each(function(){
         if ( $(this).val() != 0 )
           {
             sum_for_display_total.push( $(this).val() );
@@ -51,7 +51,7 @@ $(function(){
           total += parseFloat( this );
       });
 
-      $( '#surface_hard_relief_total').val( total );
+      $( '#' + id_to_display_total).val( total );
 
     };
 
@@ -63,12 +63,20 @@ $(function(){
         show_or_hide_section();
     });
 
-    // Calculate total when page loads
-    total_surface_hard_relief();
+    // Calculate total for 'surface_hard' when page loads
+    calculate_surface_relief( 'surface_relief_hard', 'surface_hard_relief_total' );
 
-    // Calculate total when onchange
+    // Calculate total for 'surface_hard' on change 
     $('.surface_relief_hard').change(function(){ 
-        total_surface_hard_relief();
+        calculate_surface_relief( 'surface_relief_hard', 'surface_hard_relief_total' );
+    });
+
+    // Calculate total for 'surface_soft' when page loads
+    calculate_surface_relief( 'surface_relief_soft', 'surface_soft_relief_total' );
+
+    // Calculate total for 'surface_soft' on change 
+    $('.surface_relief_soft').change(function(){ 
+        calculate_surface_relief( 'surface_relief_soft', 'surface_soft_relief_total' );
     });
 
 });
