@@ -20,10 +20,19 @@ class VisitsController < ApplicationController
   end
 
   def update
+    @visit = Visit.find(params[:id])
 
+    if @visit.update_attributes(params[:visit])
+      flash[:success] = "Visit was updated"
+      redirect_to visits_url
+    else
+      flash[:failure] = "Visit was NOT updated"
+      render 'edit'
+    end
   end
 
   def edit
+    @visit = Visit.find(params[:id])
   end
 
   def index
