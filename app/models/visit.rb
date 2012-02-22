@@ -20,4 +20,6 @@ class Visit < ActiveRecord::Base
   validates :substrate_max_depth,   :presence => true, :numericality => {:only_integer => true, :less_than_or_equal_to => 100  }
   validates :substrate_min_depth,   :presence => true, :numericality => {:only_integer => true, :greater_than_or_equal_to => 5  }
 
+  validates_is_greater_than :substrate_max_depth, :greater_than => :substrate_min_depth
+
 end
