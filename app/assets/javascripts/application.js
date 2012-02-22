@@ -12,7 +12,7 @@
 $(function(){
     
     // Hide section two until section one is completely filled out
-    $("#section_2").hide();
+    //$("#section_2").hide();
 
     function show_or_hide_section(){
 
@@ -51,8 +51,15 @@ $(function(){
           total += parseFloat( this );
       });
 
-      //if ( total > 100 )
-      //{ $( '#' + id_to_display_total).css('background','red') }
+      // If total is greater than 100 then flag it by add a red background.
+      if ( total > 100 )
+        { 
+          $( '#' + id_to_display_total).addClass('one_hundred_flag');
+        }
+      else
+        {
+          $( '#' + id_to_display_total).removeClass('one_hundred_flag');
+        }
 
       $( '#' + id_to_display_total).val( total );
 
