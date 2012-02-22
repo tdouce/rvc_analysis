@@ -54,4 +54,29 @@ ActiveRecord::Base.class_eval do
       end
     end
   end
+
+  def self.validates_adds_to_100( *attr_names )
+
+    configuration = {}
+    
+    # Retrieves last element in array IF last element is a hash
+    configuration.update(attr_names.extract_options!)
+
+    validates_each( attr_names ) do |record, attr_name, value|
+
+      unless value.nil?
+               
+        if record.send( attr_name ).is_a?(Integer)
+
+          nums_array = configuration[:sum].map {|attr| record.send( attr )}
+
+          unless nums_array.inject(0,:+) == 100
+              #record.errors.add( attr_name, "#{ configuration[:sum].map{|field| field.to_s.titleize}.join(", ") } must be sum to 100.") if value
+              record.errors.add( configuration[:message][0], configuration[:message][1]) if value
+          end
+        end
+      end
+    end
+  end
+
 end
