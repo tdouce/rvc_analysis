@@ -52,12 +52,14 @@ $(function(){
       });
 
       // If total is greater than 100 then flag it by add a red background.
-      if ( total > 100 )
+      if ( total != 100 )
         { 
+          $( '#' + id_to_display_total).removeClass('one_hundred_ok_flag');
           $( '#' + id_to_display_total).addClass('one_hundred_flag');
         }
       else
         {
+          $( '#' + id_to_display_total).addClass('one_hundred_ok_flag');
           $( '#' + id_to_display_total).removeClass('one_hundred_flag');
         }
 
@@ -82,7 +84,7 @@ $(function(){
     });
 
     // Calculate total for 'surface_soft' when page loads
-    calculate_surface_relief( 'surface_relief_soft', 'surface_soft_relief_total' );
+    calculate_surface_relief( 'surface_relief_soft', 'surface_relief_soft_total' );
 
     // Calculate total for 'surface_soft' on change 
     $('.surface_relief_soft').change(function(){ 
