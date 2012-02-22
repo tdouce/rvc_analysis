@@ -33,29 +33,29 @@
 
   <div id="section_2">
     <%= f.label "Max Depth" %>
-    <%= f.text_field :substrate_max_depth, {:value => 0} %><br />
+    <%= f.text_field :substrate_max_depth %><br />
 
     <%= f.label "Min Depth" %>
-    <%= f.text_field :substrate_min_depth, {:value => 0} %><br />
+    <%= f.text_field :substrate_min_depth %><br />
     
     <h3>Surface Relief Coverage</h3> 
 
     <h4>Hard</h4>
 
     <%= f.label "< 0.2 m" %>
-    <%= f.text_field :surface_relief_hard_cat_1, {:value=> 0, :class => 'surface_relief_hard'} %><br />
+    <%= f.text_field :surface_relief_hard_cat_1, {:class => 'surface_relief_hard'} %><br />
 
     <%= f.label "0.2 - 0.5 m" %>
-    <%= f.text_field :surface_relief_hard_cat_2, {:value=> 0, :class => 'surface_relief_hard'} %><br />
+    <%= f.text_field :surface_relief_hard_cat_2, {:class => 'surface_relief_hard'} %><br />
 
     <%= f.label "0.5 - 1.0 m" %>
-    <%= f.text_field :surface_relief_hard_cat_3, {:value=> 0, :class => 'surface_relief_hard'} %><br />
+    <%= f.text_field :surface_relief_hard_cat_3, {:class => 'surface_relief_hard'} %><br />
 
     <%= f.label "1.0 - 1.5 m" %>
-    <%= f.text_field :surface_relief_hard_cat_4, {:value=> 0, :class => 'surface_relief_hard'} %><br />
+    <%= f.text_field :surface_relief_hard_cat_4, {:class => 'surface_relief_hard'} %><br />
 
     <%= f.label "> 1.5 m" %>
-    <%= f.text_field :surface_relief_hard_cat_5, {:value=> 0, :class => 'surface_relief_hard'} %><br />
+    <%= f.text_field :surface_relief_hard_cat_5, {:class => 'surface_relief_hard'} %><br />
     <br />
     
     <%= text_field_tag 'surface_hard_relief_total', '0', :disabled => true %>
@@ -65,19 +65,19 @@
     <h4>Soft</h4>
 
     <%= f.label "< 0.2 m" %>
-    <%= f.text_field :surface_relief_soft_cat_1, {:value=> 0, :class => 'surface_relief_soft'} %><br />
+    <%= f.text_field :surface_relief_soft_cat_1, { :class => 'surface_relief_soft'} %><br />
 
     <%= f.label "0.2 - 0.5 m" %>
-    <%= f.text_field :surface_relief_soft_cat_2, {:value=> 0, :class => 'surface_relief_soft'} %><br />
+    <%= f.text_field :surface_relief_soft_cat_2, { :class => 'surface_relief_soft'} %><br />
 
     <%= f.label "0.5 - 1.0 m" %>
-    <%= f.text_field :surface_relief_soft_cat_3, {:value=> 0, :class => 'surface_relief_soft'} %><br />
+    <%= f.text_field :surface_relief_soft_cat_3, { :class => 'surface_relief_soft'} %><br />
 
     <%= f.label "1.0 - 1.5 m" %>
-    <%= f.text_field :surface_relief_soft_cat_4, {:value=> 0, :class => 'surface_relief_soft'} %><br />
+    <%= f.text_field :surface_relief_soft_cat_4, { :class => 'surface_relief_soft'} %><br />
 
     <%= f.label "> 1.5 m" %>
-    <%= f.text_field :surface_relief_soft_cat_5, {:value=> 0, :class => 'surface_relief_soft'} %><br />
+    <%= f.text_field :surface_relief_soft_cat_5, { :class => 'surface_relief_soft'} %><br />
     <br />
     
     <%= text_field_tag 'surface_soft_relief_total', '0', :disabled => true %>
