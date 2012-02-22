@@ -1,7 +1,7 @@
 class Visit < ActiveRecord::Base
 
   # virtual attribute
-  attr_accessor :surface_relief_hard_total
+  attr_accessor :hard_surface_relief_coverage
 
   before_validation :surface_relief_hard_total_starting_number
 
@@ -28,13 +28,13 @@ class Visit < ActiveRecord::Base
   # Custom validations
   validates_is_greater_than :substrate_max_depth, :greater_than => :substrate_min_depth
 
-  validates :surface_relief_hard_cat_1, :presence => true
-  validates :surface_relief_hard_cat_2, :presence => true
-  validates :surface_relief_hard_cat_3, :presence => true
-  validates :surface_relief_hard_cat_4, :presence => true
-  validates :surface_relief_hard_cat_5, :presence => true
+  validates :surface_relief_hard_cat_1, :presence => true, :numericality => true
+  validates :surface_relief_hard_cat_2, :presence => true, :numericality => true
+  validates :surface_relief_hard_cat_3, :presence => true, :numericality => true
+  validates :surface_relief_hard_cat_4, :presence => true, :numericality => true
+  validates :surface_relief_hard_cat_5, :presence => true, :numericality => true
 
-  validates_adds_to_100 :surface_relief_hard_total, 
+  validates_adds_to_100 :hard_surface_relief_coverage, 
                         :sum => [ 
                                   :surface_relief_hard_cat_1, 
                                   :surface_relief_hard_cat_2, 
@@ -42,12 +42,12 @@ class Visit < ActiveRecord::Base
                                   :surface_relief_hard_cat_4, 
                                   :surface_relief_hard_cat_5 
                                 ], 
-                        :message => ["Hard surface relief coverage", "does not sum to 100."]
+                        :message => "does not sum to 100."
 
   private
 
     def surface_relief_hard_total_starting_number
-      self.surface_relief_hard_total = 0
+      self.hard_surface_relief_coverage = 0
     end
 
 end
