@@ -3,6 +3,8 @@
 <table>
   <tr>
     <th>Name</th>
+    <th></th>
+    <th></th>
   </tr>
 
   <% @sites.each do |site| %>
@@ -10,6 +12,8 @@
     <td>
       <%= site.name %>
     </td>
+    <td><%= button_to "edit", edit_site_url(site), {:method => :get}%></td>
+    <td><%= button_to "delete", site_url(site), :method => :delete, :title => "Delete Site" %></td>
   </tr>
   <% end %>
 

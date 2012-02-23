@@ -24,4 +24,10 @@ class SitesController < ApplicationController
     @sites = Site.order("name desc")
   end
 
+  def destroy
+    @site = Site.find(params[:id])
+    @site.destroy
+    redirect_to sites_url
+  end
+
 end
