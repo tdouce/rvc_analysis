@@ -16,9 +16,18 @@ class DiversController < ApplicationController
   end
 
   def update
+    @diver = Diver.find(params[:id])
+    if @diver.update_attributes(params[:diver])
+      flash[:success] = "Diver was updated"
+      redirect_to divers_url
+    else
+      flash[:failure] = "Diver was NOT updated"
+      render 'edit'
+    end
   end
 
   def edit
+    @diver = Diver.find(params[:id])
   end
 
   def index
