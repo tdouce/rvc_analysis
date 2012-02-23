@@ -56,7 +56,7 @@
 
     <%= f.fields_for :visit_animals do |builder| %>
       <%= builder.label "Specie" %>
-      <%= builder.collection_select :animal_id, Animal.all, :id, :scientific_name, {:include_blank => ""} , {:class => 'section_3'}%> <br />
+      <%= builder.collection_select :animal_id, Animal.all, :id, :combined_name, {:include_blank => ""} , {:class => 'section_3'}%> <br />
     <% end %>
 
     <br />
