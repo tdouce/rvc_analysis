@@ -1,4 +1,4 @@
 class VisitAnimal < ActiveRecord::Base
-  #belongs_to :visits
-  #belongs_to :animals
+  belongs_to :visit
+  belongs_to :animal
 end
