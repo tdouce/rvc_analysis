@@ -1,0 +1,13 @@
+
+<%= form_for @animal do |f| %>
+
+  <%= render 'shared/errormessages', :object => f.object %>
+
+  <%= f.label "Common Name" %>
+  <%= f.text_field :common_name %> <br />
+  <%= f.label "Scientific Name" %>
+  <%= f.text_field :scientific_name %>
+
+  <br />
+  <%= f.submit %>
+<% end %>

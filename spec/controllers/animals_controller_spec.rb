@@ -1,13 +1,6 @@
 require 'spec_helper'
 
-describe SpeciesController do
-
-  describe "GET 'create'" do
-    it "returns http success" do
-      get 'create'
-      response.should be_success
-    end
-  end
+describe AnimalsController do
 
   describe "GET 'new'" do
     it "returns http success" do
@@ -16,9 +9,9 @@ describe SpeciesController do
     end
   end
 
-  describe "GET 'update'" do
+  describe "GET 'create'" do
     it "returns http success" do
-      get 'update'
+      get 'create'
       response.should be_success
     end
   end
@@ -30,9 +23,23 @@ describe SpeciesController do
     end
   end
 
+  describe "GET 'update'" do
+    it "returns http success" do
+      get 'update'
+      response.should be_success
+    end
+  end
+
   describe "GET 'destroy'" do
     it "returns http success" do
       get 'destroy'
+      response.should be_success
+    end
+  end
+
+  describe "GET 'index'" do
+    it "returns http success" do
+      get 'index'
       response.should be_success
     end
   end
