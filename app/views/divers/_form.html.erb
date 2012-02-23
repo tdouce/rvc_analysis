@@ -1,0 +1,13 @@
+
+<%= form_for @diver do |f| %>
+
+  <%= render 'shared/errormessages', :object => f.object %>
+
+  <%= f.label "First Name" %>
+  <%= f.text_field :first_name %> <br />
+  <%= f.label "Last Name" %>
+  <%= f.text_field :last_name %>
+
+  <br />
+  <%= f.submit %>
+<% end %>
