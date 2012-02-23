@@ -8,6 +8,7 @@ class VisitsController < ApplicationController
     # Build twice because we need two divers for each visit.  This generates
     # collection_select inside field_for twice
     2.times { @visit.diver_visits.build }
+    5.times { @visit.visit_animals.build }
   end
 
   def create
