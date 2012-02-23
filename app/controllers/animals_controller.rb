@@ -5,7 +5,7 @@ class AnimalsController < ApplicationController
 
   def create
     @animal = Animal.new(params[:animal])
-    if @diver.save
+    if @animal.save
       flash[:success] = "Species was created!"
       redirect_to animals_url
     else
@@ -24,6 +24,7 @@ class AnimalsController < ApplicationController
   end
 
   def index
+    @animals = Animal.all
   end
 
 end

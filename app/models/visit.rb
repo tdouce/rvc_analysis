@@ -11,6 +11,9 @@ class Visit < ActiveRecord::Base
   has_many    :divers, :through => :diver_visits
   accepts_nested_attributes_for :diver_visits
 
+  #has_many    :visit_animals
+  #has_many    :animals, :through => :visit_animals
+
   validates :site,                  :presence => true
   #validates :divers,                :presence => true
   validates :dive_start,            :presence => true

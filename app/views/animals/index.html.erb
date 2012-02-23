@@ -1,2 +1,13 @@
 <h1>Animals#index</h1>
-<p>Find me in app/views/animals/index.html.erb</p>
+<table>
+  <tr>
+    <td>Common Name</td>
+    <td>Scientific Name</td>
+  </tr>
+  <% @animals.each do |animal| %>
+    <tr>
+      <td> <%= animal.common_name %></td>
+      <td> <%= animal.scientific_name %></td>
+    </tr>
+  <% end %>
+<table>
