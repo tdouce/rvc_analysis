@@ -1,18 +1,9 @@
 ValidationsTest::Application.routes.draw do
  
-  get "species/create"
-
-  get "species/new"
-
-  get "species/update"
-
-  get "species/edit"
-
-  get "species/destroy"
-
   resources :divers
   resources :visits
   resources :sites
+  resources :species
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
