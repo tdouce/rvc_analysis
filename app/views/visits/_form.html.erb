@@ -1,5 +1,5 @@
 
-<%= form_for @visit do |f| %>
+<%= nested_form_for @visit do |f| %>
 
   <%= render 'shared/errormessages', :object => f.object %>
 
@@ -55,9 +55,13 @@
   <div id="section_3">
 
     <%= f.fields_for :visit_animals do |builder| %>
-      <%= builder.label "Specie" %>
+      <%= builder.label "Species:" %>
       <%= builder.collection_select :animal_id, Animal.all, :id, :combined_name, {:include_blank => ""} , {:class => 'section_3'}%> <br />
+      <%= builder.link_to_remove "Remove this species" %>
+      <br />
     <% end %>
+
+    <p> <%= f.link_to_add "Add species", :visit_animals %></p>
 
     <br />
   </div>
