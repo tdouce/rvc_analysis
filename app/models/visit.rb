@@ -50,7 +50,7 @@ class Visit < ActiveRecord::Base
   validates :surface_relief_soft_cat_4, :numericality => true, :allow_blank => true
   validates :surface_relief_soft_cat_5, :numericality => true, :allow_blank => true
 
-  validates_adds_to_100 :hard_surface_relief_coverage, 
+  validates_adds_to_100 :soft_surface_relief_coverage, 
                         :sum => [ 
                                   :surface_relief_soft_cat_1, 
                                   :surface_relief_soft_cat_2, 
@@ -68,7 +68,7 @@ class Visit < ActiveRecord::Base
     end
 
     def surface_relief_soft_total_starting_number
-      self.hard_surface_relief_coverage = 0
+      self.soft_surface_relief_coverage = 0
     end
 
 end
