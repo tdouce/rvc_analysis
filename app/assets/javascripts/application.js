@@ -7,6 +7,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require underscore-min.js
+//= require jquery_nested_form
 //= require_tree .
 
 $(function(){

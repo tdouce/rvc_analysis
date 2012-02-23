@@ -36,6 +36,8 @@ gem 'rspec-rails', ">= 2.2.1"
 gem 'capybara'
 gem 'launchy'
 
+gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
+
 # To use debugger
 gem 'ruby-debug19', :require => 'ruby-debug'
 
