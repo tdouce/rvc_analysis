@@ -5,6 +5,7 @@ class Visit < ActiveRecord::Base
 
   before_validation :surface_relief_hard_total_starting_number,
                     :surface_relief_soft_total_starting_number
+
   belongs_to  :site
   has_many    :diver_visits
   has_many    :divers, :through => :diver_visits
@@ -34,6 +35,7 @@ class Visit < ActiveRecord::Base
   validates :surface_relief_hard_cat_4, :numericality => true, :allow_blank => true
   validates :surface_relief_hard_cat_5, :numericality => true, :allow_blank => true
 
+  # Custon validation
   validates_adds_to_100 :hard_surface_relief_coverage, 
                         :sum => [ 
                                   :surface_relief_hard_cat_1, 
@@ -50,6 +52,7 @@ class Visit < ActiveRecord::Base
   validates :surface_relief_soft_cat_4, :numericality => true, :allow_blank => true
   validates :surface_relief_soft_cat_5, :numericality => true, :allow_blank => true
 
+  # Custon validation
   validates_adds_to_100 :soft_surface_relief_coverage, 
                         :sum => [ 
                                   :surface_relief_soft_cat_1, 
@@ -59,7 +62,6 @@ class Visit < ActiveRecord::Base
                                   :surface_relief_soft_cat_5 
                                 ], 
                         :message => "does not sum to 100."
-
 
   private
 
