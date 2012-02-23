@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120222180253) do
+ActiveRecord::Schema.define(:version => 20120223163455) do
 
   create_table "diver_visits", :force => true do |t|
     t.integer  "diver_id"
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(:version => 20120222180253) do
 
   create_table "sites", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "species", :force => true do |t|
+    t.string   "scientific_name"
+    t.string   "common_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
