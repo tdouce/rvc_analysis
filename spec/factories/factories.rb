@@ -7,6 +7,11 @@ Factory.define :site do |f|
   f.sequence(:name) {|n| "Site Name #{n}"}
 end
 
+Factory.define :specie do |f|
+  f.sequence(:common_name) {|n| "Specie Name #{n}"}
+  f.sequence(:scientific_name) {|n| "Specie Name #{n}"}
+end
+
 Factory.define :visit do |f|
   current_time  = Time.now
   f.dive_start                current_time
