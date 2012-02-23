@@ -25,4 +25,10 @@ class DiversController < ApplicationController
     @divers = Diver.order("last_name desc")
   end
 
+  def destroy
+    @diver = Diver.find(params[:id])
+    @diver.destroy
+    redirect_to divers_url
+  end
+
 end
