@@ -76,21 +76,31 @@ $(function(){
     // select_options
     function display_selected_species_in_div(){
 
+      //Hide that species select options and add the species to the div if that
+      //animal has NOT been removed
+      function show_or_hide_species(){
+        $('#section_3 .specie').each(function(){
+
+            $(this).closest('.add_species').hide();
+
+            var parent_div = $(this).closest('.fields'); 
+
+            if ( parent_div.is(":visible") )
+              { 
+                var klass = 'added_species ' + $(this).attr('id')
+                $( '<li class="' + klass + '">' + $("option:selected", this ).text() + '</li>' ).appendTo('#selected_species');
+              };
+        });
+      };
+
       // Onchange remove all species in div and than add them again
       $('.section_3').live("change", function(){ 
 
         $('#selected_species').find('.added_species').each(function(){
             $(this).remove();
         });
-        
-        //Hide that species select options 
-        $('#section_3 .specie').each(function(){
 
-            $(this).closest('.add_species').hide();
-
-            var klass = 'added_species ' + $(this).attr('id')
-            $( '<li class="' + klass + '">' + $("option:selected", this ).text() + '</li>' ).appendTo('#selected_species');
-        });
+        show_or_hide_species();
 
       });
 
@@ -101,16 +111,19 @@ $(function(){
           $('#' + eye_d ).closest('.add_species').show();
       });
 
-
       // Fix the remove species link_to
-      //$('.remove_species').live("click", function(){ 
-      //  $('#selected_species').find('.added_species').each(function(){
-      //      $(this).remove();
-      //  });
-      //});
+      $('.remove_species').live("click", function(){ 
+
+        $('#selected_species').find('.added_species').each(function(){
+            $(this).remove();
+        });
+
+        show_or_hide_species();
+
+      });
     };
 
-
+    // Invoke function to display species to div 
     display_selected_species_in_div();
 
     // Check to see if section should be shown or hidden when page loads
