@@ -53,19 +53,24 @@
   <br />
 
   <div id="section_3">
-
+    <div>
+      <ul id="selected_species">
+      </ul>
+    </div>
     <%= f.fields_for :visit_animals do |builder| %>
-      <%= builder.label "Species:" %>
-      <%= builder.collection_select :animal_id, Animal.all, :id, :combined_name, {:include_blank => ""} , {:class => 'section_3'}%> <br />
-      <%= builder.link_to_remove "Remove this species" %>
+      <div class="add_species">
+        <%= builder.label "Species:" %>
+        <%= builder.collection_select :animal_id, Animal.all, :id, :combined_name, {:include_blank => ""}, 
+                                      {:class => 'section_3 specie'}%> <br />
+        <%= builder.link_to_remove "Remove this species", {:class => 'remove_species'} %>
       <br />
+      </div>
     <% end %>
 
     <p> <%= f.link_to_add "Add species", :visit_animals %></p>
 
     <br />
-    <div id="selected_species">
-    </div>
+    
   </div>
 
 

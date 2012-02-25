@@ -13,7 +13,7 @@
 $(function(){
     
     // Hide section two until section one is completely filled out
-    $("#section_2").hide();
+    //$("#section_2").hide();
 
     function show_or_hide_section(){
 
@@ -67,6 +67,51 @@ $(function(){
       $( '#' + id_to_display_total).val( total );
 
     };
+
+    
+    // When species select options change then loop through each value and
+    // append that value to to the div that displays all the species that have
+    // been added up to this point, and hide all the select_options.  When user 
+    // double clicks on species in div then show the animals associated
+    // select_options
+    function display_selected_species_in_div(){
+
+      // Onchange remove all species in div and than add them again
+      $('.section_3').live("change", function(){ 
+
+        $('#selected_species').find('.added_species').each(function(){
+            $(this).remove();
+        });
+        
+        //Hide that species select options 
+        $('#section_3 .specie').each(function(){
+
+            $(this).closest('.add_species').hide();
+
+            var klass = 'added_species ' + $(this).attr('id')
+            $( '<li class="' + klass + '">' + $("option:selected", this ).text() + '</li>' ).appendTo('#selected_species');
+        });
+
+      });
+
+      // When user double clicks on species in div, then show the animals
+      // associated select_options
+      $('.added_species').live("dblclick", function(){ 
+          var eye_d = $(this).attr('class').split(/\s/)[1]
+          $('#' + eye_d ).closest('.add_species').show();
+      });
+
+
+      // Fix the remove species link_to
+      //$('.remove_species').live("click", function(){ 
+      //  $('#selected_species').find('.added_species').each(function(){
+      //      $(this).remove();
+      //  });
+      //});
+    };
+
+
+    display_selected_species_in_div();
 
     // Check to see if section should be shown or hidden when page loads
     show_or_hide_section();
